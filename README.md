@@ -197,7 +197,8 @@ Hatter contract logic is a wide design space for DAOs. Here are some examples of
 * **Wearer eligibility** - Enforce certain requirements that prospective wearers must meet in order to wear a given Hat, such as membership in a DAO or holding some token(s).
 * **Wearer staking** - One particularly important type of eligibility requirement is staking tokens, DAO shares, or some other asset as a bond that could be slashed if the wearer is not a good steward of the accountabilities associated with the Hat, or does not follow through on its associated responsibilities.
 * **Hat creation** - Allow certain addresses -- such as members of a DAO -- to create Hats that are then admin'd by the DAO.
-* **Hat minting** - Allow certain addresses -- such as members of a DAO -- to mint Hat tokens. Together with the above, a DAO could in this way enable its members to create and wear a certain type of Hat permissionlessly. This would be especially if using Hats to facilitate role clarity and legibility.
+* **Hat minting** - Allow certain addresses -- such as members of a DAO -- to mint Hat tokens. Together with the above, a DAO could, in this way, enable its members to create and wear a certain type of Hat permissionless. This would be especially if using Hats to facilitate role clarity and legibility.
+* **Hat Details Updge** - Allow certain addresses -- such as members of a DAO -- to change the properties from the properties list above. 
 
 #### Hat Trees
 
@@ -361,11 +362,11 @@ An admin can also mint multiple Hats by calling `Hats.batchMintHats`. This enabl
 
 ### Transferring a Hat
 
-Only a Hat's admin can transfer its token(s) to new wearer(s).
+Only a Hat's admin can transfer its token(s) to a new wearer(s).
 
 Unlike typical tokens, the wearer of a Hat cannot transfer the Hat to another wallet. This is because the authorities and responsibilities associated with a Hat are delegated to, not owned by, the wearer.
 
-As a result, there is no need for safe transfers (transfers which check whether the recipient supports ERC1155) or to pass data to recipient `on1155Received` or `onERC1155BatchReceived` hooks.
+As a result, there is no need for safe transfers (transfers that check whether the recipient supports ERC1155) or to pass data to recipient `on1155Received` or `onERC1155BatchReceived` hooks.
 
 For these reasons, in Hats Protocol, the standard ERC1155 transfer functions &mdash; `safeTransferFrom` and `safeBatchTransferFrom` are disabled and will always revert. Similarly, token approvals are not required and `setApprovalForAll` will always revert.
 
